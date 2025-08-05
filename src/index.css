@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -20,7 +22,14 @@ a {
 
 body {
   width: 50%;
-  
   margin: auto;
   text-align: justify;
+}
+
+
+@media (max-width: 768px) {
+body {
+  width: 100%;
+}
+
 }

@@ -1,6 +1,6 @@
 import ProjectCard from "../components/ProjectCard"
-import img1 from '../assets/images/infriendtory.png'
-
+import EmailField from "../components/EmailField";
+import { Link } from 'react-router-dom'
 export default function Home() {
     const projects = [
     {
@@ -18,7 +18,6 @@ export default function Home() {
     title: 'InFRIENDtory',
     description: 'Created a bartering app designed to reduce product waste. Won best sustainabilty in HunterHacks',
     date: 'May 2025',
-    image: img1,
   },
   {
     title: 'Treasury Analyst Intern',
@@ -49,7 +48,7 @@ export default function Home() {
 ];
 
     return (
-        <div>
+        <>
             <div>
                 <h2>
                 Hi, I'm Faikar!
@@ -61,7 +60,7 @@ export default function Home() {
                 I'm always open to learn new things in various fields <strong>because as humans we should always strive to learn more!</strong>
                 </p>
             </div>
-            <h3>Latest Updates</h3>
+            <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Experiences</h3>
             <div className="experiences">
                 {projects.map((proj, index) => (
                 <ProjectCard
@@ -69,14 +68,19 @@ export default function Home() {
                 title={proj.title}
                 date={proj.date}
                 description={proj.description}
-                image={proj.image}
-                route={`/experience-${index}`}
+                route={`/experience/${index}`}
                 />
                 ))}
             </div>
             <div className="contact">
-                
+                <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Contact</h3>
+                <p>I'm always open to new projects and opportunities! Please reach out to me at</p>
+                <div className="contact-links">
+                    <EmailField/>
+                    <Link className="contact-link">Linked</Link>
+                    <Link className="contact-link">Github</Link>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

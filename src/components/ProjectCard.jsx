@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function ProjectCard({title, description, image, route, date}) {
+export default function ProjectCard({title, description, route, date}) {
 
     return (
         <Link to={route}>
@@ -12,8 +12,6 @@ export default function ProjectCard({title, description, image, route, date}) {
 
                     
                 >
-                    <img src={image} className="project-img">
-                    </img>
                     <h4>{title}</h4>
                     <p>Date: {date}</p>
                     <p> 
