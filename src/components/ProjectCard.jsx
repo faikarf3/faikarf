@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function ProjectCard({title, description, route, date}) {
-
+export default function ProjectCard({title, description, route, date, id}) {
     return (
         <Link to={route}>
-            <div className='project'>
+            <div className='project' id={`project-${id}`}>
                 <div   
                     className="project-content"
 

@@ -7,22 +7,26 @@ export default function Home() {
     title: 'Reading Knack',
     description: 'A full-stack web application for uploading, reading, and quizzing over reading passages',
     date: 'June 2025 - Present',
+    id: 7,
     },
     {
     title: 'CUNY Tech Prep Fellowship',
     description: 'Part of Cohort 11 of CUNY Tech Prep. Creating projects together and technical interview prep',
     date: 'May 2025 - Present',
+    id: 6,
 
   },
   {
     title: 'InFRIENDtory',
     description: 'Created a bartering app designed to reduce product waste. Won best sustainabilty in HunterHacks',
     date: 'May 2025',
+    id: 5,
   },
   {
     title: 'Treasury Analyst Intern',
     date: 'Jun - Aug 2024',
     description: 'Interned in a Bank as a Treasury Analyst in BRI New York',
+    id: 4,
 
 
   },
@@ -30,12 +34,14 @@ export default function Home() {
     title: 'Supplemental Instructor',
     date: 'Aug 2023 - Present',
     description: 'Teach and guide college students to understand better of their class materials',
+    id: 3,
 
   },
   {
     title: 'Web Dev Intern',
     date: 'Jun - Aug 2023',
     description: 'Interned as a frontend developer in TheRICC, a journal company',
+    id: 2,
 
   },
   
@@ -43,6 +49,7 @@ export default function Home() {
     title: 'Gamma Ray Detector Research',
     date: 'Feb - Apr 2023',
     description: 'Reseached in Gamma Rays using Arduino and Electronics',
+    id: 1,
 
   },
 ];
@@ -62,13 +69,14 @@ export default function Home() {
             </div>
             <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Experiences</h3>
             <div className="experiences">
-                {projects.map((proj, index) => (
+                {projects.map((proj) => (
                 <ProjectCard
-                key={index}
+                key={proj.id}
                 title={proj.title}
                 date={proj.date}
                 description={proj.description}
-                route={`/experience/${index}`}
+                route={`/experience/${proj.id}`}
+                id={proj.id}
                 />
                 ))}
             </div>
