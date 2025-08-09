@@ -53,33 +53,7 @@ nav {
   border-bottom: 2px solid #A31D1D;
 }
 /* HIDE nav-links on small screens */
-@media (max-width: 768px) {
-  
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
 
-  .nav-links.active {
-    display: flex;
-  }
-}
-
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-/* Show hamburger on small screens */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-}
 
 
 .experience-list {
@@ -97,8 +71,12 @@ nav {
   border-radius: 10px;
   transition: transform 0.1s ease;
   margin-bottom: 20px;
-  overflow:hidden;
+  overflow: hidden;
   font-size: 13px;
+
+  /* ✅ Added for vertical layout */
+  display: flex;
+  flex-direction: column;
 }
 
 .project:hover {
@@ -109,6 +87,7 @@ nav {
 .project-content {
   margin: 20px;
   cursor: pointer;
+  flex-grow: 1; 
 }
 
 .project-img {
@@ -117,6 +96,11 @@ nav {
   border-radius: 10px;
   object-fit: cover;
 }
+
+.project-date {
+  margin: 10px 20px 20px; 
+}
+
 
 .email-container {
   display: flex;
@@ -170,6 +154,45 @@ nav {
 
 .logo-container {
   margin: 10px;
+}
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  /* The hamburger button */
+.hamburger {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001; /* stays above menu */
+
+}
+
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -100%; /* ✅ completely hidden */
+  width: 250px;
+  height: 100%;
+  background-color:#F8F2DE;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.nav-links.active {
+  right: 0; /* ✅ fully slides in */
+}
+
 }
 
 

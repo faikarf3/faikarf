@@ -42,5 +42,9 @@ footer {
 body {
   width: 100%;
 }
-
+section {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
 }

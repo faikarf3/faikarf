@@ -12,11 +12,12 @@ export default function ProjectCard({title, description, route, date, id}) {
                     
                 >
                     <h4>{title}</h4>
-                    <p>Date: {date}</p>
+                    
                     <p> 
                         {description}    
                     </p>
                 </div>
+                <div className='project-date'><p>Date: {date}</p></div>
             </div>
         </Link>
     )

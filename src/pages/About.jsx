@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className='text-justify w-3/5 mx-auto'>
+        <section>
         <h2>Hi, I'm Faikar!</h2>
         <p>
             I've always been interested in a lot of things from physics to drawings so it's really hard for me to focus on one thing. So here are my top 3 things I love.
@@ -40,6 +40,6 @@ export default function About() {
         <p>
                 Some honorable mentions are <strong>Physics</strong> and <strong>Pingpong</strong>
         </p>
-        </div>
+        </section>
     );
 }

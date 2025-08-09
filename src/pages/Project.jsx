@@ -67,12 +67,12 @@ export default function Project() {
     }
 
     return (
-        <div className="project-detail">
+        <section className="project-detail">
             <h1>{experience.title}</h1>
             <h3> {experience.heading}</h3>
             <a href={experience.link} alt="InFRIENDtory"><p>{experience.link}</p></a>
             <p><strong>Date:</strong> {experience.date}</p>
             <p>{experience.desc}</p>
-        </div>
+        </section>
     );
 }
