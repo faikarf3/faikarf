@@ -1,6 +1,10 @@
 import ProjectCard from "../components/ProjectCard"
 import EmailField from "../components/EmailField";
+import Footer from "../components/Footer";
 import { Link } from 'react-router-dom'
+import linkedinlogo from '../assets/images/linkedin.png';
+import githublogo from '../assets/images/github.png'
+
 export default function Home() {
     const projects = [
     {
@@ -56,7 +60,7 @@ export default function Home() {
 
     return (
         <>
-            <div>
+            <section>
                 <h2>
                 Hi, I'm Faikar!
                 </h2>
@@ -66,29 +70,32 @@ export default function Home() {
                 I also teach physics, which keeps me sharp in problem-solving, and write songs as a creative outlet. 
                 I'm always open to learn new things in various fields <strong>because as humans we should always strive to learn more!</strong>
                 </p>
-            </div>
-            <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Experiences</h3>
-            <div className="experiences">
-                {projects.map((proj) => (
-                <ProjectCard
-                key={proj.id}
-                title={proj.title}
-                date={proj.date}
-                description={proj.description}
-                route={`/experience/${proj.id}`}
-                id={proj.id}
-                />
-                ))}
-            </div>
-            <div className="contact">
+            </section>
+            <section className="experiences">
+              <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Experiences</h3>
+              <div className="experience-list">
+                  {projects.map((proj) => (
+                  <ProjectCard
+                  key={proj.id}
+                  title={proj.title}
+                  date={proj.date}
+                  description={proj.description}
+                  route={`/experience/${proj.id}`}
+                  id={proj.id}
+                  />
+                  ))}
+              </div>
+            </section>
+            <section className="contact">
                 <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Contact</h3>
                 <p>I'm always open to new projects and opportunities! Please reach out to me at</p>
                 <div className="contact-links">
                     <EmailField/>
-                    <Link className="contact-link">Linked</Link>
-                    <Link className="contact-link">Github</Link>
+                    <a href="https://www.linkedin.com/in/faikar-fazazaman" target="linkedin" className="logo-container"><img className="contact-link-linkedin"src={linkedinlogo} alt="LinkedIn"></img></a>
+                    <a href="https://github.com/faikarf3" target="linkedin" className="logo-container"><img className="contact-link-github"src={githublogo} alt="Github"></img></a>
                 </div>
-            </div>
+            </section>
+            <Footer />
         </>
     )
 }

@@ -21,9 +21,20 @@ a {
 }
 
 body {
-  width: 50%;
+  width: 63%;
   margin: auto;
   text-align: justify;
+}
+
+section {
+  margin-bottom:100px;;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #A31D1D;
+  padding-top: 50px;;
 }
 
 
