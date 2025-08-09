@@ -95,7 +95,7 @@ export default function Home() {
                     <a href="https://github.com/faikarf3" target="linkedin" className="logo-container"><img className="contact-link-github"src={githublogo} alt="Github"></img></a>
                 </div>
             </section>
-            <Footer />
+            
         </>
     )
 }
