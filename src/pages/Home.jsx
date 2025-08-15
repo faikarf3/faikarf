@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Link } from 'react-router-dom'
 import linkedinlogo from '../assets/images/linkedin.png';
 import githublogo from '../assets/images/github.png'
+import faikarImage from '../assets/images/faikar.jpg'
 
 export default function Home() {
     const projects = [
@@ -64,6 +65,19 @@ export default function Home() {
                 <h2>
                 Hi, I'm Faikar!
                 </h2>
+                <img 
+                    src={faikarImage} 
+                    alt="Faikar" 
+                    style={{
+                        width: '200px',
+                        height: '200px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        margin: '20px 0',
+                        border: '3px solid #A31D1D'
+                    }}
+                />
                 <p>
                 I'm a Computer Science student in Hunter College with a passion for software engineering. 
                 I’m always happy to join more group projects to sharpen my skills and learn from others. 
