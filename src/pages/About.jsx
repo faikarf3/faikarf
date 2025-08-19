@@ -32,7 +32,7 @@ export default function About() {
                     <strong>3. Music</strong>
                     <p>
                     Music for me is like a canvas, or an empty code editor for all you techies reading this. It serves as an outlet to create or to express how I feel through very absract meaning which are music notes. When you're in too deep debuggin a code for hours on end,
-                    it's good to stop and relax. For me music serves that purpose of destressing and letting out my emotion through instrument. Getting out of all the logical stuff and just enjoying playing music. Try it out!
+                    it's good to stop and relax. For me music serves that purpose of destressing and letting out my emotion through instrument. Getting out of all the logical stuff and just enjoying playing music. Check out my music <strong><a href="https://soundcloud.com/runaway-computer" target="soundcloud">here</a></strong>
                     </p>
                 </div>
             </li>

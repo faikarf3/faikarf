@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Free-Tier Stack Diagram</title>
+<style>
+  :root{--bg:#0b1220;--card:#121a2b;--muted:#93a3b8;--accent:#6ee7b7;--text:#e8eef9;--link:#a5b4fc;--line:#324063}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+  .wrap{padding:28px;max-width:1100px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 18px}
+  .sub{color:var(--muted);margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:1.1fr 0.8fr;gap:22px;align-items:start}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .legend div{background:#0e1526;border:1px solid var(--line);padding:12px;border-radius:12px}
+  .k{display:inline-flex;gap:8px;align-items:center}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .db{background:#60a5fa}.api{background:#f59e0b}.fe{background:#a78bfa}.obj{background:#34d399}.edge{background:#f472b6}.cache{background:#f87171}
+  svg{width:100%;height:auto;display:block}
+  code,pre{background:#0e1526;border:1px solid var(--line);padding:10px 12px;border-radius:10px;color:#e6edf3}
+  .small{color:var(--muted);font-size:13px}
+  a{color:var(--link);text-decoration:none}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Free‑Tier Architecture: React + Django + Neon (Postgres) + Cloudflare R2</h1>
+    <p class="sub">Designed for a small‑company web app with users + file uploads. Minimal ops, mostly free tiers.</p>
+
+    <div class="grid">
+      <div class="card">
+        <!-- Diagram SVG -->
+        <svg viewBox="0 0 1050 680" role="img" aria-label="Stack diagram">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#111a2b"/><stop offset="1" stop-color="#0d1424"/></linearGradient>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+            </filter>
+            <style>
+              .box{fill:url(#g1);stroke:#324063;stroke-width:1.2;rx:14;ry:14;filter:url(#shadow)}
+              .title{font:600 16px ui-sans-serif,system-ui,Segoe UI;fill:#e8eef9}
+              .pill{font:600 12px ui-sans-serif;fill:#0b1220}
+              .muted{font:500 12px ui-sans-serif;fill:#93a3b8}
+              .l{stroke:#324063;stroke-width:2;marker-end:url(#arrow)}
+            </style>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="#324063" />
+            </marker>
+          </defs>
+
+          <!-- Client Side -->
+          <rect x="40" y="40" width="360" height="110" class="box"/>
+          <text x="60" y="72" class="title">React Frontend (Static Hosting)</text>
+          <text x="60" y="98" class="muted">Vercel / Netlify / GitHub Pages</text>
+          <rect x="60" y="110" width="150" height="24" rx="12" fill="#a78bfa"/>
+          <text x="75" y="127" class="pill">Public SPA</text>
+
+          <!-- API Layer -->
+          <rect x="440" y="40" width="280" height="130" class="box"/>
+          <text x="460" y="72" class="title">Django + DRF API</text>
+          <text x="460" y="98" class="muted">Railway / Render / VPS (Docker)</text>
+          <rect x="460" y="110" width="170" height="24" rx="12" fill="#f59e0b"/>
+          <text x="475" y="127" class="pill">Auth, Business Logic</text>
+
+          <!-- Database -->
+          <rect x="780" y="40" width="230" height="130" class="box"/>
+          <text x="800" y="72" class="title">Neon (PostgreSQL)</text>
+          <text x="800" y="98" class="muted">Managed, serverless free tier</text>
+          <rect x="800" y="110" width="160" height="24" rx="12" fill="#60a5fa"/>
+          <text x="815" y="127" class="pill">Users, metadata</text>
+
+          <!-- Object Storage -->
+          <rect x="780" y="220" width="230" height="140" class="box"/>
+          <text x="800" y="252" class="title">Cloudflare R2 (S3 API)</text>
+          <text x="800" y="278" class="muted">Files via pre‑signed URLs</text>
+          <rect x="800" y="290" width="170" height="24" rx="12" fill="#34d399"/>
+          <text x="815" y="307" class="pill">Uploads, downloads</text>
+
+          <!-- Optional Cache/Queue -->
+          <rect x="440" y="220" width="280" height="140" class="box"/>
+          <text x="460" y="252" class="title">Optional: Redis / Worker</text>
+          <text x="460" y="278" class="muted">Upstash Redis + Celery/RQ</text>
+          <rect x="460" y="290" width="170" height="24" rx="12" fill="#f87171"/>
+          <text x="475" y="307" class="pill">Cache, tasks, websockets</text>
+
+          <!-- Arrows -->
+          <line x1="400" y1="95" x2="440" y2="95" class="l"/>
+          <line x1="720" y1="95" x2="780" y2="95" class="l"/>
+          <line x1="580" y1="170" x2="580" y2="220" class="l"/>
+          <line x1="720" y1="290" x2="780" y2="290" class="l"/>
+
+          <!-- Edge / CDN -->
+          <rect x="40" y="200" width="360" height="70" class="box"/>
+          <text x="60" y="232" class="title">Edge / CDN</text>
+          <text x="60" y="254" class="muted">Static hosting CDN + R2 CDN</text>
+
+          <!-- Security callouts -->
+          <text x="60" y="330" class="muted">Security:</text>
+          <text x="60" y="352" class="muted">• HTTPS everywhere • JWT/Session from Django • CORS locked to frontend</text>
+          <text x="60" y="374" class="muted">• Pre‑signed S3/R2 URLs for direct browser uploads (no big files via Django)</text>
+        </svg>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0;font-size:18px">Env Vars (minimum)</h2>
+        <pre><code>DATABASE_URL=postgresql://user:pass@host:5432/db
+DJANGO_SECRET_KEY=...
+ALLOWED_HOSTS=yourdomain.com
+CORS_ALLOWED_ORIGINS=https://your-frontend
+
+# R2/S3
+AWS_ACCESS_KEY_ID=...
+AWS_SECRET_ACCESS_KEY=...
+AWS_STORAGE_BUCKET_NAME=your-bucket
+AWS_S3_ENDPOINT_URL=https://&lt;accountid&gt;.r2.cloudflarestorage.com
+AWS_S3_REGION_NAME=auto
+</code></pre>
+        <h2 style="font-size:18px">Request Flow</h2>
+        <ol>
+          <li>React calls Django (login/signup, get pre‑signed upload URL).</li>
+          <li>Django reads/writes metadata in Neon Postgres.</li>
+          <li>Browser uploads file directly to R2 using the pre‑signed URL.</li>
+          <li>Django stores the file key/URL; serves downloads via signed URLs.</li>
+        </ol>
+        <p class="small">Swap providers easily: Neon ⇄ RDS, R2 ⇄ S3, Render ⇄ Railway ⇄ VPS.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <h2 style="margin-top:0;font-size:18px">Next Steps (copy‑paste friendly)</h2>
+      <ol>
+        <li>Create Neon DB and get <code>DATABASE_URL</code>.</li>
+        <li>Create R2 bucket + API token; note endpoint URL.</li>
+        <li><code>pip install "psycopg[binary]" dj-database-url django-storages boto3 python-dotenv</code></li>
+        <li>Wire <code>DATABASES</code> with <code>dj_database_url</code>; set <code>DEFAULT_FILE_STORAGE</code> to S3Boto3.</li>
+        <li>Add CORS for your frontend domain in Django and R2 bucket policy.</li>
+        <li>Implement a DRF endpoint to mint pre‑signed PUT/GET URLs.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

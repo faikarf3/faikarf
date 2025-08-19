@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import linkedinlogo from '../assets/images/linkedin.png';
 import githublogo from '../assets/images/github.png'
 import faikarImage from '../assets/images/faikar.jpg'
+import soundcloudlogo from '../assets/images/soundcloud.png'
 
 export default function Home() {
     const projects = [
@@ -102,11 +103,12 @@ export default function Home() {
             </section>
             <section className="contact">
                 <h3 style={{ borderBottom: '1px solid #A31D1D'}}>Contact</h3>
-                <p>I'm always open to new projects and opportunities! Please reach out to me at</p>
+                <p>I'm always open to new projects and opportunities! Please reach out to me below. Oh, and also check out my music on soundcloud!</p>
                 <div className="contact-links">
                     <EmailField/>
                     <a href="https://www.linkedin.com/in/faikar-fazazaman" target="linkedin" className="logo-container"><img className="contact-link-linkedin"src={linkedinlogo} alt="LinkedIn"></img></a>
                     <a href="https://github.com/faikarf3" target="linkedin" className="logo-container"><img className="contact-link-github"src={githublogo} alt="Github"></img></a>
+                    <a href="https://soundcloud.com/runaway-computer" target="linkedin" className="logo-container"><img className="contact-link-soundcloud"src={soundcloudlogo} alt="SoundCloud"></img></a>
                 </div>
             </section>
             
